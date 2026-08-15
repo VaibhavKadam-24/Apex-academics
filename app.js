@@ -48,23 +48,45 @@ themeToggle.addEventListener('click', () => {
   applyTheme(current === 'dark' ? 'light' : 'dark');
 });
 
-// ── LOAD DATA ─────────────────────────────────────────────────
-async function loadResources() {
-  try {
-    const res = await fetch('resources.json');
-    if (!res.ok) throw new Error('Failed to load resources.json');
-    state.resources = await res.json();
-    updateStats();
-    renderCards();
-  } catch (err) {
-    cardsGrid.innerHTML = `
-      <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted)">
-        <div style="font-size:2.5rem;margin-bottom:12px">⚠️</div>
-        <p>Could not load resources. Make sure <strong>data/resources.json</strong> exists.</p>
-      </div>`;
-    console.error(err);
-  }
-}
+    // ── LOAD DATA ─────────────────────────────────────────────────
+    async function loadResources() {
+      const basePath = window.location.pathname.endsWith('/')
+        ? window.location.pathname
+        : window.location.pathname + '/';
+
+      const possiblePaths = [
+        './resources.json',
+        'resources.json',
+        './data/resources.json',
+        'data/resources.json',
+        basePath + 'resources.json',
+        basePath + 'data/resources.json'
+      ];
+
+      let loadedData = null;
+
+      for (const path of possiblePaths) {
+        try {
+          const res = await fetch(path);
+          if (res.ok) {
+            loadedData = await res.json();
+            break;
+          }
+        } catch (e) {}
+      }
+
+      if (loadedData && Array.isArray(loadedData) && loadedData.length > 0) {
+        state.resources = loadedData;
+        updateStats();
+        renderCards();
+      } else {
+        cardsGrid.innerHTML = `
+          <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted)">
+            <div style="font-size:2.5rem;margin-bottom:12px">⚠️</div>
+            <p>Could not load resources. Make sure <strong>resources.json</strong> exists.</p>
+          </div>`;
+      }
+    }
 
 // ── STATS ─────────────────────────────────────────────────────
 function updateStats() {
