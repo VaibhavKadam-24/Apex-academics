@@ -51,7 +51,7 @@ themeToggle.addEventListener('click', () => {
 // ── LOAD DATA ─────────────────────────────────────────────────
 async function loadResources() {
   try {
-    const res = await fetch('data/resources.json');
+    const res = await fetch('resources.json');
     if (!res.ok) throw new Error('Failed to load resources.json');
     state.resources = await res.json();
     updateStats();
