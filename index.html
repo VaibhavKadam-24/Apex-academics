@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Academics — Free eBooks, Courses & Certifications for Students</title>
+  <meta name="description" content="A free, open-source student hub to find verified free eBooks, online courses, and certifications. No login, no paywall — just free knowledge." />
+  <meta name="keywords" content="free ebooks, free courses, free certifications, student resources, BCA, B.Tech, NPTEL, Coursera free, programming books" />
+  <meta name="author" content="Apex Academics" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Apex Academics — Free Knowledge for Every Student" />
+  <meta property="og:description" content="Find free eBooks, certifications and courses instantly. Built by students, for students." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ───────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" id="logo-link">
+        <span class="logo-icon">📚</span>
+        <span class="logo-text">Apex <span class="logo-accent">Academics</span></span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#resources" class="nav-link" id="nav-resources">Resources</a>
+        <a href="https://github.com/VaibhavKadam-24/Apex-academics" target="_blank" class="nav-link" id="nav-github">
+          GitHub ↗
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+          <span class="theme-icon" id="themeIcon">☀️</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+
+    <div class="hero-inner">
+      <div class="hero-badge" id="hero-badge">
+        🇮🇳 Built by a BCA Student &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; MIT License
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        Free Resources.<br />
+        <span class="gradient-text">Zero Excuses.</span>
+      </h1>
+
+      <p class="hero-subtitle" id="hero-subtitle">
+        Instant access to verified free eBooks, certifications & courses.
+        No login. No paywalls. No ads. Just knowledge.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="search-wrapper" id="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search Python, NPTEL, Cybersecurity, SQL..."
+          autocomplete="off"
+          aria-label="Search resources"
+        />
+        <button class="search-clear" id="searchClear" aria-label="Clear search" style="display:none;">✕</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat" id="stat-total">
+          <span class="stat-num" id="totalCount">0</span>
+          <span class="stat-label">Resources</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat" id="stat-ebooks">
+          <span class="stat-num" id="ebookCount">0</span>
+          <span class="stat-label">eBooks</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat" id="stat-courses">
+          <span class="stat-num" id="courseCount">0</span>
+          <span class="stat-label">Courses</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat" id="stat-certs">
+          <span class="stat-num" id="certCount">0</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAIN ─────────────────────────────────────────────── -->
+  <main class="main" id="resources">
+
+    <!-- Filter Bar -->
+    <section class="filter-section" id="filter-section">
+      <div class="filter-inner">
+
+        <div class="filter-group" id="filter-category">
+          <span class="filter-label">Type</span>
+          <div class="filter-pills" role="group" aria-label="Filter by type">
+            <button class="pill active" data-filter="category" data-value="all" id="pill-all">All</button>
+            <button class="pill" data-filter="category" data-value="ebook" id="pill-ebook">📖 eBooks</button>
+            <button class="pill" data-filter="category" data-value="course" id="pill-course">🎥 Courses</button>
+            <button class="pill" data-filter="category" data-value="certification" id="pill-cert">🎓 Certifications</button>
+          </div>
+        </div>
+
+        <div class="filter-group" id="filter-level">
+          <span class="filter-label">Level</span>
+          <div class="filter-pills" role="group" aria-label="Filter by level">
+            <button class="pill active" data-filter="level" data-value="all" id="pill-level-all">All</button>
+            <button class="pill" data-filter="level" data-value="Beginner" id="pill-beginner">🌱 Beginner</button>
+            <button class="pill" data-filter="level" data-value="Intermediate" id="pill-intermediate">🔥 Intermediate</button>
+            <button class="pill" data-filter="level" data-value="Advanced" id="pill-advanced">⚡ Advanced</button>
+          </div>
+        </div>
+
+        <div class="filter-group" id="filter-language">
+          <span class="filter-label">Language</span>
+          <select class="filter-select" id="languageFilter" aria-label="Filter by language">
+            <option value="all">All Languages</option>
+            <option value="English">English</option>
+            <option value="Hindi">Hindi 🇮🇳</option>
+          </select>
+        </div>
+
+        <div class="filter-right" id="filter-right">
+          <span class="result-count" id="resultCount">Showing all</span>
+          <button class="reset-btn" id="resetFilters">Reset</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Cards Grid -->
+    <section class="cards-section" id="cards-section">
+      <div class="cards-grid" id="cardsGrid" role="list" aria-label="Resource cards">
+        <!-- Cards injected by app.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-icon">🔭</div>
+        <h3>No results found</h3>
+        <p>Try different keywords or clear your filters.</p>
+        <button class="reset-btn" id="resetFromEmpty">Clear filters</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── CONTRIBUTE BANNER ─────────────────────────────────── -->
+  <section class="contribute-banner" id="contribute-banner">
+    <div class="contribute-inner">
+      <div class="contribute-text">
+        <h2>Know a free resource we missed?</h2>
+        <p>Add it in 2 minutes via a GitHub Pull Request. Every contribution helps a fellow student.</p>
+      </div>
+      <a
+        href="https://github.com/VaibhavKadam-24/Apex-academics/blob/main/CONTRIBUTING.md"
+        target="_blank"
+        class="contribute-btn"
+        id="contribute-cta"
+      >
+        + Add Resource on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">📚</span>
+        <span class="logo-text">Apex <span class="logo-accent">Academics</span></span>
+      </div>
+      <p class="footer-tagline">Made by a BCA student. For every student.</p>
+      <div class="footer-links">
+        <a href="https://github.com/VaibhavKadam-24/Apex-academics" target="_blank" id="footer-github">GitHub</a>
+        <a href="https://github.com/VaibhavKadam-24/Apex-academics/blob/main/LICENSE" target="_blank" id="footer-license">MIT License</a>
+        <a href="https://github.com/VaibhavKadam-24/Apex-academics/issues" target="_blank" id="footer-issues">Report Issue</a>
+      </div>
+      <p class="footer-copy">© 2026 Apex Academics · Open Source · Free Forever 🇮🇳</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
