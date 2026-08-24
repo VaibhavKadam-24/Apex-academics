@@ -35,7 +35,7 @@ Every student knows the struggle — you want to learn something new but:
 **Apex Academics** solves this. One place, verified free, always updated — built by students, for students.
 
 > 💬 *"I built this in my first year of BCA because I couldn't find a simple, fast place to discover free resources. So I made one."*
-> — **Vaibhav Kadam**,Pooja Patel, BCA Year 1
+> — **Vaibhav Kadam**,Pooja Patel
 
 ---
 
